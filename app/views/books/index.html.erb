@@ -1,3 +1,6 @@
+<p id="notice">
+  <%= notice %>
+</p>
 <h1><strong>Books</strong></h1>
 
 <table>
@@ -14,7 +17,7 @@
       <td><%= book.body %></td>
       <td><%= link_to "Show", book_path(book.id) %></td>
       <td><%= link_to "Edit", edit_book_path(book.id) %></td>
-      <td><%= link_to "Destroy",book_path(book.id), method: :delete %></td>
+      <td><%= link_to "Destroy",book_path(book.id), method: :delete, data: {confirm: 'Are you sure?'} %></td>
   　</tr>
   <% end %>
   </tbody>
@@ -22,6 +25,7 @@
 
 <h2><strong>New book</strong></h2>
 <%= form_with model: @book, local: true do |f| %>
+
   <h4>Title</h4>
   <%= f.text_field :title %>
   <h4>body</h4>
